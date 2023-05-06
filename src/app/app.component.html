@@ -1,18 +1,26 @@
-<table class="table">
-  <thead>
-    <th>#</th>
-    <th>Name</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Place</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let hero of heroes">
-      <td>{{hero.id}}</td>
-      <td>{{hero.name}}</td>
-      <td>{{hero.firstName}}</td>
-      <td>{{hero.lastName}}</td>
-      <td>{{hero.place}}</td>
-    </tr>
-  </tbody>
-</table>
+<form>
+  <button style="margin-bottom: 10px; margin-top: 10px; margin-left: 20px;" type="button" class="btn btn-success"
+    (click)="initNewHero()">Crate New Hero</button>
+  <table class="table">
+    <thead>
+      <th>#</th>
+      <th>Name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Place</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of heroes">
+        <td>{{hero.id}}</td>
+        <td>{{hero.name}}</td>
+        <td>{{hero.firstName}}</td>
+        <td>{{hero.lastName}}</td>
+        <td>{{hero.place}}</td>
+        <td><button (click)="editHero(hero)" type="button" class="btn btn-dark">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-edit-hero [hero]="heroToEdit" (heroesUpdated)="updateHeroList($event)"></app-edit-hero>
+</form>

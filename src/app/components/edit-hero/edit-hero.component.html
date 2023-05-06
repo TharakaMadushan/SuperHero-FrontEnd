@@ -1,0 +1,28 @@
+<div *ngIf="hero" style="margin-left: 20px;">
+  <h2>{{hero.name}}</h2>
+
+  <div class="form-group col-md-6">
+    <label for="inputHeroname">Name</label>
+    <input [(ngModel)]="hero.name" type="text" class="form-control" placeholder="Enter Hero Name Here">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputFirstName">First Name</label>
+      <input [(ngModel)]="hero.firstName" type="name" class="form-control" placeholder="Enter First Name Here">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputLastName">Last Name</label>
+      <input [(ngModel)]="hero.lastName" type="name" class="form-control" placeholder="Enter Last Name Here">
+    </div>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputPlace">Place</label>
+    <input [(ngModel)]="hero.place" type="text" class="form-control" placeholder="Enter Place Here">
+  </div>
+  <div style="margin-top: 10px; margin-right:5px; margin-left:5px">
+    <button type="submit" (click)="updateHero(hero)" *ngIf="hero.id" class="btn btn-primary">Update Hero</button>
+    <button type="submit" (click)="deleteHero(hero)" *ngIf="hero.id" class="btn btn-danger">Delete Hero</button>
+    <button type="submit" (click)="createHero(hero)" *ngIf="!hero.id" class="btn btn-warning">Create Hero</button>
+  </div>
+
+</div>
